@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2024_03_12_054058) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.string "number"
+    t.string "employee_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2024_03_12_054058) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.string "number"
+    t.string "employee_number"
     t.string "phone_number"
     t.string "car_number"
     t.datetime "created_at", precision: 6, null: false
