@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  
   # 社員
   scope module: :public do
     resources :genres, only: [:index,:show]
