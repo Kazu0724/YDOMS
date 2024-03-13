@@ -1,0 +1,10 @@
+  ja:
+    enums:
+      genre:
+        color:
+          red:
+          blue:
+          yellow:
+          lime:
+          purple:
+          orange:
