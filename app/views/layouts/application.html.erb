@@ -11,8 +11,12 @@
   </head>
 
   <body>
-    <%= link_to "ログアウト", destroy_employee_session_path, method: :delete %>
 
-    <%= yield %>
+      <%= render 'layouts/header' %>
+    <main>
+      <%= yield %>
+    </main>
+
+
   </body>
 </html>
