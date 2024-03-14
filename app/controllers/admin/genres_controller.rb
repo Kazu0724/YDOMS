@@ -2,6 +2,7 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genres = Genre.all
+    @genre = Genre.new
   end
 
   def create
@@ -10,11 +11,13 @@ class Admin::GenresController < ApplicationController
       redirect_to admin_genres_path
     else
       @genres = Genre.all
-      render 'index'
+      render :index
     end
   end
 
   def show
+    @genre = Genre.find(params[:id])
+
   end
 
   def edit

@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-2">
 
     </div>
 
-    <div class="col">
+    <div class="col-10">
       <h1>ジャンル一覧・登録</h1>
         <div class="genre_new">
           <%= form_with model: @genre, url: admin_genres_path do |f| %>
@@ -14,7 +14,8 @@
             </p>
             <p>
               カラー
-              <%= f.select :color, Genre.colors.keys.map { |key| [t("enum.genre.color.#{key}"), key] } %>
+
+              <%= f.select :color, Genre.colors.keys.map { |key| [I18n.t("enums.genre.color.#{key}"), key] } %>
             </p>
             <%= f.submit "ジャンル登録" %>
           <% end %>
@@ -34,9 +35,9 @@
               <% @genres.each do |genre| %>
                 <tr>
                   <td><%= genre.name %></td>
-                  <td><%= genre.color %></td>
+                  <td><%= genre.color_i18n %></td>
                   <td><%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %></td>
-                  <td><%= link_to "削除", admin_genres_path(genres), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
+                  <td><%= link_to "削除", admin_genres_path(genre), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
                 </tr>
               <% end %>
             </tbody>
