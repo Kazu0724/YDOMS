@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg bg-back" style="height: 7rem;">
+  <div class="container-fluid">
+
+  <h1><%= link_to "YDOMS", root_path, class: "btn btn-logo"%></h1>
+
+    <div style="margin-left: 450px; font-weight: bold; color: white; font-size: 1.5rem;">
+      <% if employee_signed_in? && current_employee %>
+        <div>【 ようこそ<span><%= current_employee.last_name %><%= current_employee.first_name %></span>様！ 】</div>
+      <% elsif admin_signed_in? %>
+        <div>【 管理者用ページ 】</div>
+      <% else %>
+        <div>【 ようこそゲスト様！ 】</div>
+      <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if admin_signed_in? %>
+          <li class="nav-item"><%= link_to "仕事一覧", admin_works_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "社員一覧", admin_employees_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "商品", admin_items_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ジャンル", admin_genres_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "配送先", admin_addresses_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
+        <% elsif employee_signed_in? %>
+          <li class="nav-item"><%= link_to "仕事一覧", works_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "社員一覧", employees_list_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "商品", items_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ジャンル", genres_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "配送先", addresses_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "新規登録", new_employee_registration_path, class: "nav-link btn btn-outline mx-3" %></li>
+          <li class="nav-item"><%= link_to "ログイン", new_employee_session_path, class: "nav-link btn btn-outline mx-3" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="header-inner">
+      <form>
+        <input type="text" placeholder="検索">
+        <button>🔍</button>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  
+  root to: 'homes#top'
+
   # 社員
   scope module: :public do
     resources :genres, only: [:index,:show]
