@@ -1,0 +1,10 @@
+  ja:
+    enums:
+      genre:
+        color:
+          red: "赤"
+          blue: "青"
+          yellow: "黄"
+          lime: "緑"
+          purple: "紫"
+          orenge: "橙"
