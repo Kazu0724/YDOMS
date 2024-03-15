@@ -1,12 +1,7 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
   <div class="field">
     <%= f.label :名前（姓）%><br>
@@ -37,6 +32,14 @@
     <%= f.label :電話番号 %><br>
     <%= f.text_field :phone_number %>
   </div>
+
+    <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <!--car_numbre デフォルト-->
+    <%= f.hidden_field :car_number, :value => 0000 %>
 
   <div class="field">
     <%= f.label :パスワード %>
