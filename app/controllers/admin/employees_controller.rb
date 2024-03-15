@@ -4,15 +4,27 @@ class Admin::EmployeesController < ApplicationController
   end
 
   def show
+    @employee = Employee.find(params[:id])
   end
 
   def edit
+    @employee = Employee.find(params[:id])
   end
 
   def update
+    @employee = Employee.find(params[:id])
+    if @employee.update(employee_params)
+      redirect_to admin_employee_path
+    else
+      @employee = Employee.find(params[:id])
+      render :edit
+    end
   end
 
   def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+    redirect_to admin_employees_path
   end
 
   private
