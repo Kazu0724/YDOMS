@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    resources :genres, only: [:index,:show,:edit,:create,:update]
+    resources :genres, only: [:index,:show,:edit,:create,:update, :destroy]
     resources :addresses, only: [:index,:show,:new,:edit,:create,:update,:destroy]
     resources :items, only: [:index,:edit,:create,:update,:destroy]
     resources :works, only: [:index,:show,:new,:create,:edit,:update,:destroy] do
