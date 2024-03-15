@@ -10,8 +10,7 @@ Rails.application.routes.draw do
       resources :work_comments, only:[:create,:destroy]
       resources :status, only:[:create,:destroy]
     end
-    get "employees/list", to: "employees#index"
-    get "employees/information/id", to: "employees#show"
+    resources :employees, only:[:index,:show,:edit,:update]
     resources :progresses, only:[:index]
     get "/searches", to: "searches#index"
   end

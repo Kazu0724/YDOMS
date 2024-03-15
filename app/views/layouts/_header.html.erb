@@ -24,7 +24,7 @@
           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
         <% elsif employee_signed_in? %>
           <li class="nav-item"><%= link_to "仕事一覧", works_path, class: "nav-link btn btn-outline mx-1" %></li>
-          <li class="nav-item"><%= link_to "社員一覧", employees_list_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "社員一覧", employees_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "商品", items_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "ジャンル", genres_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "配送先", addresses_path, class: "nav-link btn btn-outline mx-1" %></li>
