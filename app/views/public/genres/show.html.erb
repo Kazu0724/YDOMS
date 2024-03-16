@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= render 'genre', genres: @genres %>
+    </div>
+
+    <div class="col-10">
+      <h1>ジャンル検索結果一覧</h1>
+        <div><%= @genre.name %></div>
+        <table>
+          <thead>
+            <tr>
+              <th>店舗名</th>
+              <th>担当者</th>
+              <th>配送状況</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
