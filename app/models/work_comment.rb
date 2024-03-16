@@ -1,0 +1,2 @@
+class WorkComment < ApplicationRecord
+end

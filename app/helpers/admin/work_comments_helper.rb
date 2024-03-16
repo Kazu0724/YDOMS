@@ -1,0 +1,2 @@
+module Admin::WorkCommentsHelper
+end
