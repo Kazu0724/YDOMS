@@ -2,14 +2,17 @@ class Public::EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+    @genres = Genre.all
   end
 
   def show
     @employee = Employee.find(params[:id])
+    @genres = Genre.all
   end
 
   def edit
     @employee = Employee.find(params[:id])
+    @genres = Genre.all
   end
 
   def update

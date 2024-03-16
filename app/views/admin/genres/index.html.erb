@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-2">
-
+      <%= render 'genre', genres: @genres %>
     </div>
 
     <div class="col-10">
@@ -28,7 +28,6 @@
                 <th>ジャンル名</th>
                 <th>カラー</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -36,8 +35,10 @@
                 <tr>
                   <td><%= genre.name %></td>
                   <td><%= genre.color_i18n %></td>
-                  <td><%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %></td>
-                  <td><%= link_to "削除", admin_genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %></td>
+                  <td>
+                    <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
+                    <%= link_to "削除", admin_genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>

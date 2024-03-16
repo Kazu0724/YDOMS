@@ -16,11 +16,13 @@ class Admin::GenresController < ApplicationController
   end
 
   def show
+    @genres = Genre.all
     @genre = Genre.find(params[:id])
 
   end
 
   def edit
+    @genres = Genre.all
     @genre = Genre.find(params[:id])
   end
 
