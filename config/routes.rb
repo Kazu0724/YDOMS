@@ -2,6 +2,18 @@ Rails.application.routes.draw do
   root to: 'homes#top'
 
   # 社員
+  devise_for :employees,skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
+
+  # 管理者
+  devise_for :admin,skip: [:passwords], controllers: {
+    registrations: "admin/registrations",
+    sessions: "admin/sessions"
+  }
+
+  # 社員
   scope module: :public do
     resources :genres, only: [:index,:show]
     resources :addresses, only: [:index,:show]
@@ -28,17 +40,5 @@ Rails.application.routes.draw do
     resources :progresses, only:[:index]
     get "/searches", to: "searches#index"
     end
-
-# 社員
-devise_for :employees,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
-
-# 管理者
-devise_for :admin,skip: [:passwords], controllers: {
-  registrations: "admin/registrations",
-  sessions: "admin/sessions"
-}
 
 end
