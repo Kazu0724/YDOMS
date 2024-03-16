@@ -1,7 +1,7 @@
 class Admin::AddressesController < ApplicationController
 
   def index
-    @addresses = Address.all
+    @addresses = Address.all.order(:genre_id)
     @genres = Genre.all
   end
 
@@ -20,17 +20,28 @@ class Admin::AddressesController < ApplicationController
   end
 
   def show
+    @address = Address.find(params[:id])
     @genres = Genre.all
   end
 
   def edit
+    @address = Address.find(params[:id])
     @genres = Genre.all
   end
 
   def update
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      redirect_to admin_address_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to admin_addresses_path
   end
 
   private
