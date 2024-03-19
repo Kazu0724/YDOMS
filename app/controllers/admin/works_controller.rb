@@ -1,6 +1,6 @@
 class Admin::WorksController < ApplicationController
   def index
-    @works = Work.all
+    @works = Work.all.order(:date)
     @employees = Employee.all
     @genres = Genre.all
   end
@@ -17,11 +17,23 @@ class Admin::WorksController < ApplicationController
     else
       render :new
     end
+
   end
 
   def show
     @genres = Genre.all
     @work = Work.find(params[:id])
+  end
+
+  def status
+    @work = Work.find(params[:id])
+    if @work.status = true
+      @work.update_attribute(:status, false)
+      redirect_to admin_work_path
+    else
+      @work.update_attribute(:status, true)
+      redirect_to admin_work_path
+    end
   end
 
   def edit

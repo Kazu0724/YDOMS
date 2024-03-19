@@ -14,8 +14,9 @@
 
   <div class="row">
 
-
+    <% @works.each do |work| %>
     <table class="table">
+      <%= work.date %>
       <thead>
         <tr>
           <th></th>
@@ -32,12 +33,16 @@
         </tr>
       </thead>
       <tbody>
+
         <% Employee.all.each do |employee|%>
+
           <% employee.works.each do |work| %>
+
             <tr>
               <td>
                 <%= employee.last_name %><%= employee.first_name %></br>
                 <%= employee.car_number %> <br>
+                <%= l work.date %>
               </td>
                 <% [*9..18].each do |num| %>
                   <td>
@@ -59,7 +64,7 @@
         <% end %>
       </tbody>
     </table>
-
+    <% end %>
   </div>
 
   <div class="row">
@@ -109,3 +114,265 @@
   </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% #ver1 %>
+
+  <div class="row">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>日付</th>
+          <th>9:00</th>
+          <th>10:00</th>
+          <th>11:00</th>
+          <th>12:00</th>
+          <th>13:00</th>
+          <th>14:00</th>
+          <th>15:00</th>
+          <th>16:00</th>
+          <th>17:00</th>
+          <th>18:00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%
+          work_list = {}
+        %>
+        <% Employee.all.each do |employee|%>
+
+          <%
+            # ユーザー毎の入れ物を作る
+            work_list[employee.id] = {}
+          %>
+
+
+          <% employee.works.each do |work| %>
+
+            <%
+              if work_list[employee.id].include?(work.date)
+                # なにもしない
+              else
+                # ユーザーのその日付の入れ物を作る
+                work_list[employee.id][work.date] = []
+              end
+
+              # 同じ日付の場合hあ配列の最後に追加する
+              work_list[employee.id][work.date].push(
+                work
+              )
+            %>
+          <% end %>
+        <% end %>
+
+        <% work_list.each do |target_employee_id, target_date_list| %>
+
+          <%
+            # ユーザーの特定
+            target_employee = Employee.find(target_employee_id)
+          %>
+
+
+
+            <% target_date_list.each do |target_date, target_work_list| %>
+              <tr>
+    
+                <td>
+                  <%= target_employee.last_name %><%= target_employee.first_name %></br>
+                  <%= target_employee.car_number %> <br>
+                </td>
+            
+            
+                <td><%= target_date %> </td>
+  
+                <% [*9..18].each do |num| %>
+                
+                
+                  <%
+                    not_work_flg = true # true なら未定
+                  %>
+  
+                  <td>
+                    <% target_work_list.each do |work| %>
+    
+                      <%
+                        if work.start_time.strftime("%H").to_i == num || # 開始時刻と一致しているか？
+                           ( work.start_time.strftime("%H").to_i < num && work.end_time.strftime("%H").to_i > num ) # 開始時刻よりも大きく尚且つ、終了時刻よりも前か？
+                      %>
+                        <span style="background-color: <%= work.address.genre.color %>">
+                          <%= work.address.genre.name %></br>
+                          <%= work.address.name %>
+                        </span>
+                        <%
+                          # 予定があるので未定ではない
+                          not_work_flg = false
+                        %>
+                      <% end %>
+                    <% end %>
+                    
+                    <% if not_work_flg %>
+                      未定
+                    <% end %>
+                  </td>
+  
+                <% end %>
+
+              </tr>
+            <% end %>
+
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <% #ver2  %>
+  
+  
+<div class="row">
+        <%
+          work_list = {}
+        %>
+        <% Employee.all.each do |employee|%>
+
+          <%
+            # ユーザー毎の入れ物を作る
+            work_list[employee.id] = {}
+          %>
+
+
+          <% employee.works.each do |work| %>
+
+            <%
+              if work_list[employee.id].include?(work.date)
+                # なにもしない
+              else
+                # ユーザーのその日付の入れ物を作る
+                work_list[employee.id][work.date] = []
+              end
+
+              # 同じ日付の場合hあ配列の最後に追加する
+              work_list[employee.id][work.date].push(
+                work
+              )
+            %>
+          <% end %>
+        <% end %>
+
+        <% work_list.each do |target_employee_id, target_date_list| %>
+
+          <%
+            # ユーザーの特定
+            target_employee = Employee.find(target_employee_id)
+          %>
+
+
+
+            <% target_date_list.each do |target_date, target_work_list| %>
+            
+              <h2><%= target_date %></h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>9:00</th>
+                    <th>10:00</th>
+                    <th>11:00</th>
+                    <th>12:00</th>
+                    <th>13:00</th>
+                    <th>14:00</th>
+                    <th>15:00</th>
+                    <th>16:00</th>
+                    <th>17:00</th>
+                    <th>18:00</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr>
+      
+                  <td>
+                    <%= target_employee.last_name %><%= target_employee.first_name %></br>
+                    <%= target_employee.car_number %> <br>
+                  </td>
+    
+                  <% [*9..18].each do |num| %>
+                  
+                  
+                    <%
+                      not_work_flg = true # true なら未定
+                    %>
+    
+                    <td>
+                      <% target_work_list.each do |work| %>
+      
+                        <%
+                          if work.start_time.strftime("%H").to_i == num || # 開始時刻と一致しているか？
+                             ( work.start_time.strftime("%H").to_i < num && work.end_time.strftime("%H").to_i > num ) # 開始時刻よりも大きく尚且つ、終了時刻よりも前か？
+                        %>
+                          <span style="background-color: <%= work.address.genre.color %>">
+                            <%= work.address.genre.name %></br>
+                            <%= work.address.name %>
+                          </span>
+                          <%
+                            # 予定があるので未定ではない
+                            not_work_flg = false
+                          %>
+                        <% end %>
+                      <% end %>
+                      
+                      <% if not_work_flg %>
+                        未定
+                      <% end %>
+                    </td>
+    
+                  <% end %>
+  
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        <% end %>
+  </div>

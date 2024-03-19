@@ -48,7 +48,9 @@
             </tr>
             <tr>
               <td>配送状況</td>
-              <td><%= @work.status %></td>
+              <td>
+                <%= render 'admin/works/work_status', work_status: @work %>
+              </td>
             </tr>
             <tr>
               <td></td>

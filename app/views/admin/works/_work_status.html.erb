@@ -1,0 +1,10 @@
+<% if  @work.status %>
+  <%= link_to admin_works_status_path, method: :patch do %>
+    配送未達
+  <% end %>
+
+<% else %>
+  <%= link_to admin_work_path, method: :patch do %>
+    配送完了
+  <% end %>
+<% end %>
