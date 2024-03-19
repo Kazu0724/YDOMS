@@ -8,3 +8,11 @@
           lime: "緑"
           purple: "紫"
           orenge: "橙"
+
+    date:
+      formats:
+        default: "%Y/%m/%d"
+
+    time:
+      formats:
+        default: "%H:%M"
