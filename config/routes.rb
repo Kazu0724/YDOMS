@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :works, only: [:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :work_comments, only:[:create,:destroy]
     end
-    patch "works/status" => "works#status"
+    patch "works/:id/status" => "works#status", as: 'works_status'
     resources :employees, only:[:index,:show,:edit,:update,:destroy]
     resources :progresses, only:[:index]
     get "/searches", to: "searches#index"

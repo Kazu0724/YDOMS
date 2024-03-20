@@ -5,6 +5,7 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :works, dependent: :destroy
+  has_many :work_comments, dependent: :destroy
 
   def employee_name
     last_name + first_name

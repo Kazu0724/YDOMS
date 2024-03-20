@@ -20,20 +20,20 @@ class Admin::WorksController < ApplicationController
 
   end
 
-  def show
-    @genres = Genre.all
-    @work = Work.find(params[:id])
-  end
-
   def status
     @work = Work.find(params[:id])
-    if @work.status = true
+    if @work.status == true
       @work.update_attribute(:status, false)
       redirect_to admin_work_path
     else
       @work.update_attribute(:status, true)
       redirect_to admin_work_path
     end
+  end
+
+  def show
+    @genres = Genre.all
+    @work = Work.find(params[:id])
   end
 
   def edit

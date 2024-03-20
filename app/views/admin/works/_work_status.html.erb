@@ -1,10 +1,12 @@
-<% if  @work.status %>
-  <%= link_to admin_works_status_path, method: :patch do %>
-    配送未達
-  <% end %>
+<div class="work_status">
+  <% if  work.status %>
+    <%= link_to admin_works_status_path(work.id), method: :patch, style: "text-decoration: none;" do %>
+      <strong style="color: red;" >配送未達</strong>
+    <% end %>
 
-<% else %>
-  <%= link_to admin_work_path, method: :patch do %>
-    配送完了
+  <% else %>
+    <%= link_to admin_works_status_path(work.id), method: :patch, style: "text-decoration: none;" do %>
+      <strong style="color: green;" >配送完了</strong>
+    <% end %>
   <% end %>
-<% end %>
+</div>
