@@ -7,6 +7,7 @@ class Public::GenresController < ApplicationController
   def show
     @genres = Genre.all
     @genre = Genre.find(params[:id])
+    @works = Work.all.order(:date)
   end
 
 end
