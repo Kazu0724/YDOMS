@@ -3,7 +3,7 @@
 
   <h1><%= link_to "YDOMS", root_path, class: "btn btn-logo"%></h1>
 
-    <div style="margin-left: 450px; font-weight: bold; color: white; font-size: 1.5rem;">
+    <div style="margin-left: 200px; font-weight: bold; font-size: 1rem;">
       <% if employee_signed_in? && current_employee %>
         <div>【 ようこそ<span><%= current_employee.last_name %><%= current_employee.first_name %></span>様！ 】</div>
       <% elsif admin_signed_in? %>
@@ -21,6 +21,7 @@
           <li class="nav-item"><%= link_to "商品", admin_items_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "ジャンル", admin_genres_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "配送先", admin_addresses_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "進捗報告", admin_progresses_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
         <% elsif employee_signed_in? %>
           <li class="nav-item"><%= link_to "仕事一覧", works_path, class: "nav-link btn btn-outline mx-1" %></li>
@@ -28,6 +29,7 @@
           <li class="nav-item"><%= link_to "商品", items_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "ジャンル", genres_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "配送先", addresses_path, class: "nav-link btn btn-outline mx-1" %></li>
+          <li class="nav-item"><%= link_to "進捗報告", progresses_path, class: "nav-link btn btn-outline mx-1" %></li>
           <li class="nav-item"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class: "nav-link btn btn-outline mx-1" %></li>
         <% else %>
           <li class="nav-item"><%= link_to "新規登録", new_employee_registration_path, class: "nav-link btn btn-outline mx-3" %></li>
