@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= render 'admin/genres/genre', genres: @genres %>
+    </div>
+
+    <div class="col-10">
+      <h1>進捗報告</h1>
+        <div class="progress_list">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>店舗名</th>
+                <th>担当者</th>
+                <th>配送状況</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @works.each do |work| %>
+                <% if work.status == true %>
+                  <tr>
+                    <td>
+                      <%= link_to admin_work_path(work.id) do %>
+                        <%= l work.date %>
+                      <% end %>
+                    </td>
+                    <td><%= work.address.work_address_name %></td>
+                    <td><%= work.employee.employee_name %></td>
+                    <td><%= render 'public/works/work_status', work: work %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
