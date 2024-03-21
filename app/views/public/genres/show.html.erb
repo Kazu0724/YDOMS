@@ -6,16 +6,31 @@
 
     <div class="col-10">
       <h1>ジャンル検索結果一覧</h1>
-        <div><%= @genre.name %></div>
-        <table>
+        <div><h3><%= @genre.name %></h3></div>
+        <table class="table table-bordered">
           <thead>
             <tr>
+              <th>日付</th>
               <th>店舗名</th>
               <th>担当者</th>
               <th>配送状況</th>
             </tr>
           </thead>
           <tbody>
+            <% @works.each do |work| %>
+              <% if @genre.id == work.address.genre_id %>
+                <tr>
+                  <td>
+                    <%= link_to work_path(work.id) do %>
+                      <%= l work.date %>
+                    <% end %>
+                  </td>
+                  <td><%= work.address.name %></td>
+                  <td><%= work.employee.employee_name %></td>
+                  <td><%= render 'public/works/work_status', work: work %></td>
+                </tr>
+              <% end %>
+            <% end %>
           </tbody>
         </table>
     </div>
