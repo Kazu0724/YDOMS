@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-2">
+      <%= render 'admin/genres/genre', genres: @genres %>
+    </div>
+
+    <div class="col-10">
+      <h1>仕事登録</h1>
+        <%= form_with model: @work, url: admin_works_path do |f| %>
+          <table class="table table-borderless">
+            <!--管理者ID-->
+            <%= f.hidden_field :admin_id, :value => current_admin.id %>
+            <!--配送状況-->
+            <%= f.hidden_field :status %>
+            <tr>
+              <td>店舗名</td>
+              <td><%= f.select :address_id, options_from_collection_for_select(Address.all.order(:genre_id), :id, :work_address_name) %></td>
+            </tr>
+            <tr>
+              <td>日付</td>
+              <td><%= f.date_field :date, min: Time.zone.now, class: "h-12 rounded-[3px] text-[#333333] font-bold invalid:text-line-200" %></td>
+            </tr>
+            <tr>
+              <td>開始時間</td>
+              <td><%= f.time_field :start_time %></td>
+            </tr>
+            <tr>
+              <td>終了時間</td>
+              <td><%= f.time_field :end_time %></td>
+            </tr>
+            <tr>
+              <td>商品</td>
+              <td>
+                <%= f.select :item_id, options_from_collection_for_select(Item.all, :id, :name) %>
+                <%= f.select :amount, *[1..20] %>
+              </td>
+            </tr>
+            <tr>
+              <td>担当者</td>
+              <td><%= f.select :employee_id, options_from_collection_for_select(Employee.all, :id, :employee_name) %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "新規登録", class: "btn btn-primary" %></td>
+            </tr>
+          </table>
+        <% end %>
+    </div>
+  </div>
+</div>

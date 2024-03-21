@@ -1,12 +1,146 @@
 <div class="container">
+
+  <!--予定表-->
   <div class="row">
     <div class="col-2">
+      <!--<h3><%= Date.today %></h3>-->
+    </div>
+    <div class="col offset-9">
+      <%= link_to new_admin_work_path do %>
+        <button type="button" class="btn btn-outline-dark rounded-circle p-0" style="width:2rem;height:2rem;" >+</button>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+        <%
+          # work_list = {}
+        %>
+        <% Employee.all.each do |employee|%>
+
+          <% employee.works.each do |work| %>
+
+            <%
+              if @work_list.include?(work.date)
+                # なにもしない
+              else
+                # 日付の入れ物を作る
+                @work_list[work.date] = {}
+              end
+
+              if @work_list[work.date].include?(employee.id)
+                # なにもしない
+              else
+                # 同じ日付のユーザーの入れ物を作る
+                @work_list[work.date][employee.id] = []
+              end
+
+              # 同じユーザーの仕事を含める
+              @work_list[work.date][employee.id].push(
+                work
+              )
+            %>
+          <% end %>
+        <% end %>
+
+        <%
+          # 日付順に並び替え
+          @work_list = @work_list.sort
+        %>
+
+        <% @work_list.each do |target_date, target_employee_id_list| %>
+
+        <%
+          # TODO これが通るなら出来る 社員のページネーション
+          #page_target_employee_id_list = Kaminari.paginate_array(target_employee_id_list).page(params[:page]).per(5)
+
+        %>
+        <%#= paginate page_target_employee_id_list %>
+
+          <h2><%= target_date %></h2>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>9:00</th>
+                  <th>10:00</th>
+                  <th>11:00</th>
+                  <th>12:00</th>
+                  <th>13:00</th>
+                  <th>14:00</th>
+                  <th>15:00</th>
+                  <th>16:00</th>
+                  <th>17:00</th>
+                  <th>18:00</th>
+                </tr>
+              </thead>
+              <tbody>
+
+            <% target_employee_id_list.each do |target_employee_id, target_work_list| %>
+
+              <%
+                # ユーザーの特定
+                target_employee = Employee.find(target_employee_id)
+              %>
+
+
+                <tr>
+
+                  <td>
+                    <%= target_employee.last_name %><%= target_employee.first_name %></br>
+                    <%= target_employee.car_number %> <br>
+                  </td>
+
+                  <% [*9..18].each do |num| %>
+
+
+                    <%
+                      not_work_flg = true # true なら未定
+                    %>
+
+                    <td>
+                      <% target_work_list.each do |work| %>
+
+                        <%
+                          if work.start_time.strftime("%H").to_i == num || # 開始時刻と一致しているか？
+                             ( work.start_time.strftime("%H").to_i < num && work.end_time.strftime("%H").to_i > num ) # 開始時刻よりも大きく尚且つ、終了時刻よりも前か？
+                        %>
+                          <span style="background-color: <%= work.address.genre.color %>">
+                            <%= work.address.genre.name %></br>
+                            <%= link_to admin_work_path(work.id), style: "color: black;" do %>
+                              <%= work.address.name %></br>
+                            <% end %>
+                            <%= render 'admin/works/work_status', work: work %>
+                          </span>
+                          <%
+                            # 予定があるので未定ではない
+                            not_work_flg = false
+                          %>
+                        <% end %>
+                      <% end %>
+
+                      <% if not_work_flg %>
+                        未定
+                      <% end %>
+                    </td>
+
+                  <% end %>
+
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-1">
       <%= render 'admin/genres/genre', genres: @genres %>
     </div>
 
-    <div class="col-10">
-      <h1>仕事一覧</h1>
-    </div>
-  </div>
-</div>
 
+  </div>
+
+</div>

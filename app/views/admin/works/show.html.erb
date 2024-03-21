@@ -1,7 +1,8 @@
 <div class="container">
+
   <div class="row">
     <div class="col-2">
-      <%= render 'public/genres/genre', genres: @genres %>
+      <%= render 'admin/genres/genre', genres: @genres %>
     </div>
 
     <div class="col-10">
@@ -47,15 +48,16 @@
             </tr>
             <tr>
               <td>配送状況</td>
-              <% if @work.employee.id == current_employee.id %>
-                <td>
-                  <%= render 'admin/works/work_status', work: @work %>
-                </td>
-              <% else %>
-                <td>
-                  <%= render 'public/works/work_status', work: @work %>
-                </td>
-              <% end %>
+              <td>
+                <%= render 'admin/works/work_status', work: @work %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= link_to "編集", edit_admin_work_path, class: "btn btn-primary" %>
+                <%= link_to "削除", admin_work_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+              </td>
             </tr>
           </table>
         </div>
