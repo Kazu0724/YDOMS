@@ -3,6 +3,7 @@ class Admin::WorksController < ApplicationController
     @works = Work.all.order(:date)
     @employees = Employee.all
     @genres = Genre.all
+    @work_list = {}
   end
 
   def new
@@ -24,10 +25,10 @@ class Admin::WorksController < ApplicationController
     @work = Work.find(params[:id])
     if @work.status == true
       @work.update_attribute(:status, false)
-      redirect_to admin_work_path
+      redirect_to request.referer
     else
       @work.update_attribute(:status, true)
-      redirect_to admin_work_path
+      redirect_to request.referer
     end
   end
 

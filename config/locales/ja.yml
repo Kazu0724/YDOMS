@@ -2,12 +2,12 @@
     enums:
       genre:
         color:
-          red: "赤"
-          blue: "青"
+          salmon: "赤"
+          deepskyblue: "青"
           yellow: "黄"
-          lime: "緑"
-          purple: "紫"
-          orenge: "橙"
+          greenyellow: "緑"
+          violet: "紫"
+          coral: "橙"
 
     date:
       formats:
