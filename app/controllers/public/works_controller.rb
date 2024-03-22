@@ -9,6 +9,7 @@ class Public::WorksController < ApplicationController
   def show
     @genres = Genre.all
     @work = Work.find(params[:id])
+    @work_comment = WorkComment.new
   end
 
   def status
