@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index,:show,:new,:edit,:create,:update,:destroy]
     resources :items, only: [:index,:edit,:create,:update,:destroy]
     resources :works, only: [:index,:show,:new,:create,:edit,:update,:destroy] do
-      resources :work_comments, only:[:create,:destroy]
+      resources :work_comments, only:[:destroy]
     end
     patch "works/:id/status" => "works#status", as: 'works_status'
     resources :employees, only:[:index,:show,:edit,:update,:destroy]

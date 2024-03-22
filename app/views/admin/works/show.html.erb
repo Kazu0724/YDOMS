@@ -1,10 +1,12 @@
 <div class="container">
 
   <div class="row">
+    <!--ジャンル検索-->
     <div class="col-2">
       <%= render 'admin/genres/genre', genres: @genres %>
     </div>
 
+    <!--仕事詳細-->
     <div class="col-10">
       <h1>仕事詳細</h1>
         <div class="work_information">
@@ -64,7 +66,25 @@
     </div>
   </div>
 
+<!--コメント機能-->
   <div class="row">
+
+    <div class="col-10 offset-2">
+      <p>コメント件数:<%= @work.work_comments.count %></p>
+        <div class="comment_list">
+          <% @work.work_comments.each do |work_comment| %>
+            <table>
+              <tr>
+                <td><%= work_comment.employee.employee_name %></td>
+                <td><%= work_comment.body %></td>
+                <td>
+                  <%= link_to "削除", admin_work_work_comment_path(work_comment.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+                </td>
+              </tr>
+            </table>
+          <% end %>
+        </div>
+    </div>
 
   </div>
 </div>

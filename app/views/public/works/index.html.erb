@@ -106,6 +106,7 @@
                               <%= render 'public/works/work_status', work: work %>
                             <% end %>
                           </span>
+                          コメント<%= work.work_comments.count %>
                           <%
                             # 予定があるので未定ではない
                             not_work_flg = false

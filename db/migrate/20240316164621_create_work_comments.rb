@@ -4,7 +4,6 @@ class CreateWorkComments < ActiveRecord::Migration[6.1]
 
       t.integer :work_id
       t.integer :employee_id
-      t.integer :admin_id
       t.string :body
 
       t.timestamps
