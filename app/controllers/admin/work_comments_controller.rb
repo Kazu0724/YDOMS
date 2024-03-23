@@ -1,7 +1,7 @@
 class Admin::WorkCommentsController < ApplicationController
 
   def destroy
-    comment = WorkComment.find(params[:work_id])
+    comment = WorkComment.find(params[:id])
     comment.destroy
     redirect_to request.referer
   end
