@@ -1,0 +1,18 @@
+  ja:
+    enums:
+      genre:
+        color:
+          salmon: "赤"
+          deepskyblue: "青"
+          yellow: "黄"
+          greenyellow: "緑"
+          violet: "紫"
+          coral: "橙"
+
+    date:
+      formats:
+        default: "%Y/%m/%d"
+
+    time:
+      formats:
+        default: "%H:%M"

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-2">
+      <%= render 'public/genres/genre', genres: @genres %>
+    </div>
+
+    <div class="col-10">
+      <h1>配送先詳細</h1>
+        <div class="address_information">
+          <table class="table table-borderless">
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @address.genre.name %></td>
+            </tr>
+            <tr>
+              <td>店舗名</td>
+              <td><%= @address.name %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= @address.phone_number %></td>
+            </tr>
+            <tr>
+              <td>郵便番号(ハイフンなし)</td>
+              <td><%= @address.postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td><%= @address.address %></td>
+            </tr>
+          </table>
+        </div>
+  </div>
+</div>

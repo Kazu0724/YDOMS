@@ -1,0 +1,90 @@
+<div class="container">
+
+  <div class="row">
+    <!--ジャンル検索-->
+    <div class="col-2">
+      <%= render 'admin/genres/genre', genres: @genres %>
+    </div>
+
+    <!--仕事詳細-->
+    <div class="col-10">
+      <h1>仕事詳細</h1>
+        <div class="work_information">
+          <table class="table table-borderless">
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @work.address.genre.name %></td>
+            </tr>
+            <tr>
+              <td>店舗名</td>
+              <td><%= @work.address.name %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td><%= @work.address.postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td><%= @work.address.address %></td>
+            </tr>
+            <tr>
+              <td>日付</td>
+              <td><%= l @work.date %></td>
+            </tr>
+            <tr>
+              <td>開始時間</td>
+              <td><%= l @work.start_time %></td>
+            </tr>
+            <tr>
+              <td>終了時間</td>
+              <td><%= l @work.end_time %></td>
+            </tr>
+            <tr>
+              <td>商品</td>
+              <td><%= @work.item.name %></td>
+              <td><%= @work.amount %>　ケース</td>
+            </tr>
+            <tr>
+              <td>担当者</td>
+              <td><%= @work.employee.last_name %><%= @work.employee.first_name %></td>
+            </tr>
+            <tr>
+              <td>配送状況</td>
+              <td>
+                <%= render 'admin/works/work_status', work: @work %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= link_to "編集", edit_admin_work_path, class: "btn btn-primary" %>
+                <%= link_to "削除", admin_work_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+              </td>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </div>
+
+<!--コメント機能-->
+  <div class="row">
+
+    <div class="col-10 offset-2">
+      <p>コメント件数:<%= @work.work_comments.count %></p>
+        <div class="comment_list">
+          <% @work.work_comments.each do |work_comment| %>
+            <table>
+              <tr>
+                <td><%= work_comment.employee.employee_name %></td>
+                <td><%= work_comment.body %></td>
+                <td>
+                  <%= link_to "削除", admin_work_work_comment_path(work_comment.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+                </td>
+              </tr>
+            </table>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+</div>

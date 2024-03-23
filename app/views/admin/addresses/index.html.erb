@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-2">
+      <%= render 'admin/genres/genre', genres: @genres %>
+    </div>
+
+    <div class="col-10">
+      <h1>配送先一覧</h1>
+
+        <div class="address_new">
+          <%= link_to new_admin_address_path do %>
+            <button type="button" class="btn btn page-link text-dark d-inline-block">配送先追加</button>
+          <% end %>
+        </div>
+
+        <div class="address_list">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ジャンル</th>
+                <th>店舗名</th>
+                <th>電話番号</th>
+                <th>郵便番号</th>
+                <th>住所</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @addresses.each do |address| %>
+                  <tr>
+                    <td><%= address.genre.name %></td>
+                    <td>
+                      <%= link_to admin_address_path(address.id) do %>
+                        <%= address.name %>
+                      <% end %>
+                    </td>
+                    <td><%= address.phone_number %></td>
+                    <td><%= address.postal_code %></td>
+                    <td><%= address.address %></td>
+                  </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
