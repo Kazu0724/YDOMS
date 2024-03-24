@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>社員名</th>
+      <th>社員番号</th>
+      <th>電話番号</th>
+      <th>車両</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% employees.each do |employee| %>
+      <tr>
+        <td>
+          <%= link_to admin_employee_path(employee.id) do %>
+            <%= employee.employee_name %>
+          <% end %>
+        </td>
+        <td><%= employee.employee_number %></td>
+        <td><%= employee.phone_number %></td>
+        <td><%= employee.car_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

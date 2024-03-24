@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+
+    <!--ジャンル検索-->
+    <div class="col-2">
+      <%= render 'admin/genres/genre', genres: @genres %>
+    </div>
+
+    <!--検索結果-->
+    <div class="col-10">
+      <% if @model == 'work' %>
+        <div class="work_search">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>ジャンル</th>
+                <th>店舗名</th>
+                <th>担当者</th>
+                <th>配送状況</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @records.each do |work| %>
+                <tr>
+                  <td><%= l work.date %></td>
+                  <td><%= work.address.genre.name %></td>
+                  <td><%= work.address.name %></td>
+                  <td><%= work.employee.employee_name %></td>
+                  <td><%= render 'public/works/work_status', work: work %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      <% elsif @model == 'employee' %>
+        <h1>社員検索結果 "<%= @content %>"</h1>
+          <div class="employee_list">
+            <%= render 'admin/employees/index', employees: @records %>
+          </div>
+
+      <% else %>
+        <h1>配送先検索結果 "<%= @content %>"</h1>
+          <div class="address_search">
+            <%= render 'admin/addresses/index', addresses: @records %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
