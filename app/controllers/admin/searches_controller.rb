@@ -5,6 +5,7 @@ class Admin::SearchesController < ApplicationController
     @content = params[:content]
     if @model == 'work'
       @records = Work.search_for(@content)
+      @records = @records.order(:date)
     elsif @model == 'employee'
       @records = Employee.search_for(@content)
     else
