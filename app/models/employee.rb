@@ -11,4 +11,8 @@ class Employee < ApplicationRecord
     last_name + first_name
   end
 
+  def self.search_for(content)
+    Employee.where('last_name || first_name LIKE ?', '%' + content + '%')
+  end
+
 end

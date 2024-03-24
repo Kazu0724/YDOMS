@@ -6,4 +6,8 @@ class Address < ApplicationRecord
     genre.name + '  ' + name
   end
 
+  def self.search_for(content)
+    Address.where('name LIKE ?', '%' + content + '%')
+  end
+
 end

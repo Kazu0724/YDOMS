@@ -1,5 +1,7 @@
 <div class="container">
   <div class="row">
+
+    <!--ジャンル検索-->
     <div class="col-2">
       <%= render 'public/genres/genre', genres: @genres %>
     </div>
@@ -7,28 +9,7 @@
     <div class="col-10">
       <h1>社員一覧</h1>
         <div class="employee_list">
-          <table class="table table_bordered">
-            <thead>
-              <tr>
-                <th>社員名</th>
-                <th>社員番号</th>
-                <th>車両</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @employees.each do |employee| %>
-                <tr>
-                  <td>
-                    <%= link_to employee_path(employee.id) do %>
-                      <%= employee.last_name %><%= employee.first_name %>
-                    <% end %>
-                  </td>
-                  <td><%= employee.employee_number %></td>
-                  <td><%= employee.car_number %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+          <%= render 'public/employees/index', employees: @employees %>
         </div>
     </div>
   </div>

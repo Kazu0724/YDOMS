@@ -1,0 +1,17 @@
+<div class="input-group">
+  <% if admin_signed_in? %>
+    <%= form_with url: admin_searches_path, method: :get, local: true do |f| %>
+      <%= f.select :model, options_for_select({ "仕事" => "work", "社員" => "employee", "配送先" => "address" }) %>
+      <%= f.text_field :content %>
+      <%= f.submit "検索", class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  <% elsif employee_signed_in? %>
+    <%= form_with url: searches_path, method: :get, local: true do |f| %>
+      <%= f.select :model, options_for_select({ "仕事" => "work", "社員" => "employee", "配送先" => "address" }) %>
+      <%= f.text_field :content %>
+      <%= f.submit "検索", class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  <% else %>
+    <!--何も表示しない-->
+  <% end %>
+</div>
