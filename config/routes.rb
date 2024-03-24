@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  devise_scope :employee do
+    post "employees/guest_sign_in", to: "public/sessions#guest_sign_in"
+  end
+
   # 社員
   scope module: :public do
     resources :genres, only: [:index,:show]
