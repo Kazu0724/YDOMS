@@ -32,6 +32,9 @@
                 <td>車両</td>
                 <td><%= @employee.car_number %></td>
               </tr>
+              <% if @employee.guest_employee? %>
+                <!--ゲストユーザーの編集・削除ボタンを表示させない-->
+              <% else %>
               <tr>
                 <td></td>
                 <td>
@@ -39,6 +42,7 @@
                   <%= link_to "削除", admin_employee_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
                   </td>
               </tr>
+              <% end %>
           </table>
         </div>
     </div>

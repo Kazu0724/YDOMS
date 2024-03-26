@@ -1,6 +1,6 @@
 class Admin::EmployeesController < ApplicationController
   def index
-    @employees = Employee.all
+    @employees = Employee.all.order(:employee_number)
     @genres = Genre.all
   end
 

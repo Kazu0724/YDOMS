@@ -25,3 +25,14 @@
 .btn-outline:active {
   transform: translateY(5px);
 }
+
+
+.table-bordered th {
+  border: 1px solid black;
+}
+
+.table-bordered td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
