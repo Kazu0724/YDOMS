@@ -34,13 +34,18 @@
                 <td>車両</td>
                 <td><%= @employee.car_number %></td>
               </tr>
-              <% if @employee.id == current_employee.id %>
+              <% if @employee.guest_employee? %>
+                <!--ゲストユーザーの場合は編集ボタンを表示させない-->
+
+              <% elsif @employee.id == current_employee.id %>
                 <tr>
                   <td></td>
                   <td>
                     <%= link_to "編集", edit_employee_path, class: "btn btn-primary" %>
                   </td>
                 </tr>
+
+              <% else %>
               <% end %>
           </table>
     </div>
