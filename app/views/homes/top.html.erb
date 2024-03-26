@@ -1,9 +1,19 @@
-<h1>YDOMS</h1>
-
-<p><%= link_to "ゲストログイン（閲覧用）", employees_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %></p>
-
-<p><%= link_to 'ログイン',new_employee_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %></p>
-
-<p><%= link_to '新規登録',new_employee_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %></p>
-
-<p><%= link_to '管理者はこちら',new_admin_session_path %></p>
+<div class="container">
+    <div class='d-flex justify-content-center' style="margin-top: 40px;">
+      <h1>YDOMS</h1>
+    </div>
+    <div class="col-10 mx-auto" style="margin-top: 40px;">
+      <div class="row" style="margin-top: 40px;">
+        <%= link_to "ゲストログイン（閲覧用）", employees_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+        <%= link_to 'ログイン',new_employee_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+        <%= link_to '新規登録',new_employee_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+      </div>
+      <div class="row d-flex justify-content-end" style="margin-top: 20px;">
+        <%= link_to '管理者はこちら',new_admin_session_path %>
+      </div>
+    </div>
+</div>
