@@ -9,7 +9,7 @@
       <% elsif admin_signed_in? %>
         <div>【 管理者用ページ 】</div>
       <% else %>
-        <div>【 ようこそゲスト様！ 】</div>
+        <div>【 ようこそ！ 】</div>
       <% end %>
     </div>
 
@@ -37,11 +37,10 @@
         <% end %>
       </ul>
     </div>
-    <div class="header-inner">
-      <form>
-        <input type="text" placeholder="検索">
-        <button>🔍</button>
-      </form>
+
+    <div class="search_form">
+      <%= render 'layouts/search' %>
     </div>
+
   </div>
 </nav>

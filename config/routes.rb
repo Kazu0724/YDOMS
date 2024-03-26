@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  devise_scope :employee do
+    post "employees/guest_sign_in", to: "public/sessions#guest_sign_in"
+  end
+
   # 社員
   scope module: :public do
     resources :genres, only: [:index,:show]
@@ -24,7 +28,7 @@ Rails.application.routes.draw do
     patch "works/:id/status" => "works#status", as: 'work_status'
     resources :employees, only:[:index,:show,:edit,:update]
     resources :progresses, only:[:index]
-    get "/searches", to: "searches#index"
+    get "/searches", to: "searches#search"
   end
 
   # 管理者
@@ -38,7 +42,7 @@ Rails.application.routes.draw do
     patch "works/:id/status" => "works#status", as: 'works_status'
     resources :employees, only:[:index,:show,:edit,:update,:destroy]
     resources :progresses, only:[:index]
-    get "/searches", to: "searches#index"
+    get "/searches", to: "searches#search"
     end
 
 end

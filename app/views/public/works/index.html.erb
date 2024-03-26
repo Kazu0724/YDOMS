@@ -1,5 +1,18 @@
 <div class="container">
 
+  <!--ジャンル検索-->
+  <div class="row">
+    <div class="col">
+      <div class="d-flex">
+        <% @genres.each do |genre| %>
+          <%= link_to genre_path(genre.id), style: "text-decoration: none;" do %>
+            <button type="button" class="btn page-link text-dark d-inline-block"><div style="color: black; width:3rem;height:1rem;"><%= genre.name %></div></button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <!--予定表-->
   <div class="row">
         <%
@@ -126,16 +139,6 @@
             </tbody>
           </table>
         <% end %>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-1">
-      <%= render 'public/genres/genre', genres: @genres %>
-    </div>
-
-
   </div>
 
 </div>

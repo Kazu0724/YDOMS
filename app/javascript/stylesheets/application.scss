@@ -1,1 +1,47 @@
 @use '~bootstrap/scss/bootstrap';
+
+.btn-logo {
+  color: block;
+  background-color: yellow; /* 背景色を黄色に設定 */
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.8em 3em;
+  background-color: #E5E5E5; /* 背景色 */
+  border-radius: 60px;
+  color: #000;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
+
+.btn-outline:hover {
+  color: #000;
+  transform: translateY(5px);
+}
+
+.btn-outline:active {
+  transform: translateY(5px);
+}
+
+
+.table-bordered th {
+  border: 1px solid black !important;
+}
+
+.table-bordered td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.genre_search td {
+  background-color: #E5E5E5;
+  text-align: center;
+}
+
+.genre_search td:hover {
+  transform: translateX(5px);
+}

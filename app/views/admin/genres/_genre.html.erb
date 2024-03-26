@@ -1,11 +1,13 @@
-<% genres.each do |genre| %>
-  <table>
-    <tr>
-      <td>
-        <%= link_to admin_genre_path(genre.id) do %>
-          <%= genre.name %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+<div class="genre_search">
+  <% genres.each do |genre| %>
+    <table class="table table-borderless table-sm table-hover">
+      <tr>
+        <td>
+          <%= link_to admin_genre_path(genre.id), style: "text-decoration: none;" do %>
+            <div style="color: black;"><%= genre.name %></div>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
