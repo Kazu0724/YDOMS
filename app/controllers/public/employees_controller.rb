@@ -2,7 +2,7 @@ class Public::EmployeesController < ApplicationController
   before_action :ensure_guest_employee, only: [:edit]
 
   def index
-    @employees = Employee.all
+    @employees = Employee.all.order(:employee_number)
     @genres = Genre.all
   end
 
