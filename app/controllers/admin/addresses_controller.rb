@@ -15,6 +15,7 @@ class Admin::AddressesController < ApplicationController
     if @address.save
       redirect_to admin_addresses_path
     else
+      @genres = Genre.all
       render :new
     end
   end
@@ -34,6 +35,7 @@ class Admin::AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to admin_address_path
     else
+      @genres = Genre.all
       render :edit
     end
   end

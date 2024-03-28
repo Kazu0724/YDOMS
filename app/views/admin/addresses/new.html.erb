@@ -6,6 +6,9 @@
     </div>
 
     <div class="col-10">
+
+      <%= render 'layouts/errors', obj: @address %>
+
       <h1>配送先登録</h1>
         <div class="address_new">
           <%= form_with model: @address, url: admin_addresses_path do |f| %>

@@ -10,6 +10,7 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_items_path
     else
+      @genres = Genre.all
       @items = Item.all
       render :index
     end
@@ -25,6 +26,7 @@ class Admin::ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to admin_items_path
     else
+      @genres = Genre.all
       @items = Item.all
       render :index
     end

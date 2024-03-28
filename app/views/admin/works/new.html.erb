@@ -6,6 +6,9 @@
     </div>
 
     <div class="col-10">
+
+      <%= render 'layouts/errors', obj: @work %>
+
       <h1>仕事登録</h1>
         <%= form_with model: @work, url: admin_works_path do |f| %>
           <table class="table table-borderless">
