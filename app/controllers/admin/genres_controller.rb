@@ -34,7 +34,7 @@ class Admin::GenresController < ApplicationController
     else
       @genres = Genre.all
       @genre = Genre.find(params[:id])
-      render 'edit'
+      render :edit
     end
   end
 
