@@ -19,6 +19,7 @@ class Admin::EmployeesController < ApplicationController
     if @employee.update(employee_params)
       redirect_to admin_employee_path
     else
+      @genres = Genre.all
       @employee = Employee.find(params[:id])
       render :edit
     end

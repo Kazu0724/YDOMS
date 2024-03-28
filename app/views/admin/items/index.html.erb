@@ -6,6 +6,9 @@
 
     <div class="col-10">
       <h1>商品一覧・登録</h1>
+
+      <%= render 'layouts/errors', obj: @item %>
+
       <div class="items_new">
         <%= form_with model: @item, url: admin_items_path do |f| %>
           <div>

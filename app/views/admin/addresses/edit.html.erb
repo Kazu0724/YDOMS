@@ -7,6 +7,9 @@
 
     <div class="col-10">
       <h1>配送先編集</h1>
+
+      <%= render 'layouts/errors', obj: @address %>
+
         <div class="address_edit">
           <%= form_with model: @address, url: admin_address_path do |f| %>
             <table class="table table-borderless">
