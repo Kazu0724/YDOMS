@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-back" style="height: 7rem;">
   <div class="container-fluid">
 
+  <!--ロゴ-->
   <h1><%= link_to "YDOMS", root_path, class: "btn btn-logo"%></h1>
 
+    <!--ログイン表示-->
     <div style="margin-left: 200px; font-weight: bold; font-size: 1rem;">
       <% if employee_signed_in? && current_employee %>
         <div>【 ようこそ<span><%= current_employee.last_name %><%= current_employee.first_name %></span>様！ 】</div>
@@ -13,6 +15,7 @@
       <% end %>
     </div>
 
+    <!--リンク表示-->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <% if admin_signed_in? %>
@@ -38,6 +41,7 @@
       </ul>
     </div>
 
+    <!--検索フォーム-->
     <div class="search_form">
       <%= render 'layouts/search' %>
     </div>

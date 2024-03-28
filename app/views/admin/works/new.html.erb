@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
 
+    <!--ジャンル検索-->
     <div class="col-2">
       <%= render 'admin/genres/genre', genres: @genres %>
     </div>
 
     <div class="col-10">
 
+      <!--エラーメッセージ-->
       <%= render 'layouts/errors', obj: @work %>
 
       <h1>仕事登録</h1>
