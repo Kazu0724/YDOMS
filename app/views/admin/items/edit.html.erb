@@ -5,6 +5,9 @@
     </div>
 
     <div class="col-10">
+
+      <%= render 'layouts/errors', obj: @item %>
+
       <h1>商品編集</h1>
         <div class="item_edit">
           <%= form_with model: @item, url: admin_item_path do |f| %>

@@ -28,7 +28,7 @@ class Admin::ItemsController < ApplicationController
     else
       @genres = Genre.all
       @items = Item.all
-      render :index
+      render :edit
     end
   end
 

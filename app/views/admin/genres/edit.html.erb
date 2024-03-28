@@ -5,6 +5,9 @@
     </div>
 
     <div class="col-10">
+
+      <%= render 'layouts/errors', obj: @genre %>
+
       <h1>ジャンル編集</h1>
         <div class="genre_edit">
           <%= form_with model: @genre, url: admin_genre_path do |f| %>
