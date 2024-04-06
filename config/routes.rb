@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
+  resources :inquiries, only: [:new, :create]
 
   # 社員
   devise_for :employees,skip: [:passwords], controllers: {
