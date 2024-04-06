@@ -53,6 +53,12 @@
               address:
                 blank: "住所が入力されていません"
 
+          inquiries:
+            attributes:
+              name: "お名前"
+
+
+
         messages:
           blank: "が入力されていません"
 

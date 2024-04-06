@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :employees, only:[:index,:show,:edit,:update]
     resources :progresses, only:[:index]
     get "/searches", to: "searches#search"
+    resources :inquiries, only: [:index, :show]
   end
 
   # 管理者
@@ -45,6 +46,7 @@ Rails.application.routes.draw do
     resources :employees, only:[:index,:show,:edit,:update,:destroy]
     resources :progresses, only:[:index]
     get "/searches", to: "searches#search"
+    resources :inquiries, only: [:index, :show, :destroy]
     end
 
 end

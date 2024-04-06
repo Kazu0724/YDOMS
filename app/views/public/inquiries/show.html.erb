@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+
+    <!--ジャンル検索-->
+    <div class="col-2">
+      <%= render 'public/genres/genre', genres: @genres %>
+    </div>
+
+    <!--問い合わせ詳細-->
+    <div class="col-10">
+      <h1>問い合わせ詳細</h1>
+        <div class="inquiry_index">
+          <table class="table table-borderless">
+            <tr>
+              <td>件名</td>
+              <td><%= @inquiry.subject %></td>
+            </tr>
+            <tr>
+              <td>内容</td>
+              <td><%= @inquiry.message %></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
