@@ -14,9 +14,8 @@
             <tr>
               <td>評価点数</td>
               <td>
-                <span class="sentiment-score">
-                  <%= @inquiry.score %>
-                </span>
+                <!--AI評価点数-->
+                <%= render 'admin/inquiries/sentiment_score', inquiry: @inquiry %>
               </td>
             </tr>
             <tr>
