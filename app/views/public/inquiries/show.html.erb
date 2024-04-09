@@ -12,6 +12,14 @@
         <div class="inquiry_index">
           <table class="table table-borderless">
             <tr>
+              <td>評価点数</td>
+              <td>
+                <span class="sentiment-score">
+                  <%= @inquiry.score %>
+                </span>
+              </td>
+            </tr>
+            <tr>
               <td>件名</td>
               <td><%= @inquiry.subject %></td>
             </tr>

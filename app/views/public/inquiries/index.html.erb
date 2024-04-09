@@ -14,6 +14,7 @@
             <thead>
               <tr>
                 <th>件名</th>
+                <th>評価点数</th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +24,11 @@
                     <%= link_to inquiry_path(inquiry.id) do %>
                       <%= inquiry.subject %>
                     <% end %>
+                  </td>
+                  <td>
+                    <span class="sentiment-score">
+                      <%= inquiry.score %>
+                    </span>
                   </td>
                 </tr>
               <% end %>

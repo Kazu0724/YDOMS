@@ -15,6 +15,7 @@
               <tr>
                 <th>件名</th>
                 <th>名前</th>
+                <th>評価点数</th>
               </tr>
             </thead>
             <tbody>
@@ -26,8 +27,14 @@
                     <% end %>
                   </td>
                   <td><%= inquiry.name %></td>
+                  <td>
+                    <span class="sentiment-score">
+                      <%= inquiry.score %>
+                    </span>
+                  </td>
                 </tr>
               <% end %>
+              
             </tbody>
          </table>
        </div>
