@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <!--ジャンル検索-->
+    <div class="col-2">
+      <%= render 'admin/genres/genre', genres: @genres %>
+    </div>
+
+    <!--問い合わせ詳細-->
+    <div class="col-10">
+      <h1>問い合わせ詳細</h1>
+        <div class="inquiry_index">
+          <table class="table table-borderless">
+            <tr>
+              <td>名前</td>
+              <td><%= @inquiry.name %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= @inquiry.email %></td>
+            </tr>
+            <tr>
+              <td>評価点数</td>
+              <td>
+                <!--AI評価点数-->
+                <%= render 'admin/inquiries/sentiment_score', inquiry: @inquiry %>
+              </td>
+            </tr>
+            <tr>
+              <td>件名</td>
+              <td><%= @inquiry.subject %></td>
+            </tr>
+            <tr>
+              <td>内容</td>
+              <td><%= @inquiry.message %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= link_to "削除", admin_inquiry_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+            </tr>
+         </table>
+       </div>
+    </div>
+  </div>
+</div>
