@@ -9,12 +9,15 @@ class InquiriesController < ApplicationController
     @inquiry.score = Language.get_data(inquiry_params[:message])
     if @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver_now
-      redirect_to root_path
+      redirect_to inquiries_done_path
     else
       flash[:alert] = @inquiry.errors.full_messages.join(",")
       @inquiry = Inquiry.new
       render :new
     end
+  end
+
+  def done
   end
 
   private
