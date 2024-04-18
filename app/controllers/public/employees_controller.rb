@@ -21,6 +21,7 @@ class Public::EmployeesController < ApplicationController
     if @employee.update(employee_params)
       redirect_to employee_path
     else
+      @genres = Genre.all
       @employee = Employee.find(params[:id])
       render :edit
     end

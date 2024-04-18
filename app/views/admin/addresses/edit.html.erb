@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
 
+    <!--ジャンル検索-->
     <div class="col-2">
       <%= render 'admin/genres/genre', genres: @genres %>
     </div>
 
     <div class="col-10">
       <h1>配送先編集</h1>
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @address %>
+
         <div class="address_edit">
           <%= form_with model: @address, url: admin_address_path do |f| %>
             <table class="table table-borderless">

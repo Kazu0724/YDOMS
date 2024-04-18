@@ -7,8 +7,8 @@ class Admin::WorksController < ApplicationController
   end
 
   def new
-    @genres = Genre.all
     @work = Work.new
+    @genres = Genre.all
   end
 
   def create
@@ -16,6 +16,7 @@ class Admin::WorksController < ApplicationController
     if @work.save
       redirect_to admin_works_path
     else
+      @genres = Genre.all
       render :new
     end
 
@@ -47,6 +48,7 @@ class Admin::WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to admin_work_path
     else
+      @genres = Genre.all
       render :edit
     end
   end

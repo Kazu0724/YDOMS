@@ -1,12 +1,11 @@
 <div class="container">
-
-
   <div class="row">
+
     <!--ジャンル検索-->
     <div class="col-1">
       <div class="d-flex">
         <% @genres.each do |genre| %>
-          <%= link_to genre_path(genre.id), style: "text-decoration: none;" do %>
+          <%= link_to admin_genre_path(genre.id), style: "text-decoration: none;" do %>
             <button type="button" class="btn page-link text-dark d-inline-block"><div style="color: black; width:3rem;height:1rem;"><%= genre.name %></div></button>
           <% end %>
         <% end %>
