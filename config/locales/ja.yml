@@ -16,3 +16,49 @@
     time:
       formats:
         default: "%H:%M"
+
+    error:
+      format: "%{count}"
+
+    activerecord:
+      errors:
+        models:
+          work:
+            attributes:
+              date:
+                blank: "日付が入力されていません"
+              start_time:
+                blank: "開始時間が入力されていません"
+              end_time:
+                blank: "終了時間が入力されていません"
+
+          item:
+            attributes:
+              name:
+                blank: "商品名が入力されていません"
+
+          genre:
+            attributes:
+              name:
+                blank: "ジャンル名が入力されていません"
+
+          address:
+            attributes:
+              name:
+                blank: "店舗名が入力されていません"
+              phone_number:
+                blank: "電話番号が入力されていません"
+              postal_code:
+                blank: "郵便番号が入力されていません"
+              address:
+                blank: "住所が入力されていません"
+
+          inquiries:
+            attributes:
+              name: "お名前"
+
+
+
+        messages:
+          blank: "が入力されていません"
+

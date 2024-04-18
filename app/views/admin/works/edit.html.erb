@@ -1,12 +1,17 @@
 <div class="container">
   <div class="row">
 
+    <!--ジャンル検索-->
     <div class="col-2">
       <%= render 'admin/genres/genre', genres: @genres %>
     </div>
 
     <div class="col-10">
       <h1>仕事編集</h1>
+
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @work %>
+
         <%= form_with model: @work, url: admin_work_path do |f| %>
           <table class="table table-borderless">
             <!--管理者ID-->

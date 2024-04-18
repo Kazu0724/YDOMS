@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_16_164621) do
+ActiveRecord::Schema.define(version: 2024_04_09_071245) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "genre_id"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 2024_03_16_164621) do
     t.integer "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "subject", null: false
+    t.text "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "items", force: :cascade do |t|

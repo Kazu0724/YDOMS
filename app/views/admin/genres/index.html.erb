@@ -1,11 +1,18 @@
 <div class="container">
   <div class="row">
+
+    <!--ジャンル検索-->
     <div class="col-2">
       <%= render 'genre', genres: @genres %>
     </div>
 
     <div class="col-10">
+
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @genre %>
+
       <h1>ジャンル一覧・登録</h1>
+        <!--登録-->
         <div class="genre_new">
           <%= form_with model: @genre, url: admin_genres_path do |f| %>
             <p>
@@ -21,6 +28,7 @@
           <% end %>
         </div>
 
+        <!--一覧-->
         <div class="genre_table">
           <table class="table table-bordered">
             <thead>
