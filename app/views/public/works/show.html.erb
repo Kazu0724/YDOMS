@@ -66,7 +66,11 @@
 
   <!--コメント機能-->
   <div class="row">
-    <%= render 'public/work_comments/work_comment', work: @work, work_comment: @work_comment %>
+    <div class="col offset-2">
+      <p>コメント件数:<span id = "comment_count"><%= @work.work_comments.count %></span></p>
+        <%= render 'public/work_comments/comment_form', work: @work, work_comment: @work_comment %>
+        <%= render 'public/work_comments/comment_list', work: @work, work_comment: @work_comment %>
+    </div>
   </div>
 
 </div>

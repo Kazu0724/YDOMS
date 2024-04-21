@@ -1,11 +1,3 @@
-<div class="col offset-2">
-  <p>コメント件数:<span id = "comment_count"><%= work.work_comments.count %></span></p>
-  <div id="comment_form">
-    <%= form_with model: [work, work_comment], local: false do |f| %>
-      <%= f.text_area :body, size: "100", placeholder: "コメントをここに" %></br>
-      <%= f.submit "追加" %>
-    <% end %>
-  </div>
 
   <div id="comment_list">
       <% work.work_comments.each do |work_comment| %>
@@ -22,4 +14,3 @@
         </table>
       <% end %>
   </div>
-</div>
