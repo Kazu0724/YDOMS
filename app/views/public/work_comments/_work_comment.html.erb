@@ -1,0 +1,25 @@
+<div class="col offset-2">
+  <p>コメント件数:<span id = "comment_count"><%= work.work_comments.count %></span></p>
+  <div id="comment_form">
+    <%= form_with model: [work, work_comment], local: false do |f| %>
+      <%= f.text_area :body, size: "100", placeholder: "コメントをここに" %></br>
+      <%= f.submit "追加" %>
+    <% end %>
+  </div>
+
+  <div id="comment_list">
+      <% work.work_comments.each do |work_comment| %>
+        <table>
+          <tr>
+            <td><%= work_comment.employee.employee_name %></td>
+            <td><%= work_comment.body %></td>
+            <td>
+              <% if work_comment.employee == current_employee %>
+                <%= link_to "削除", work_work_comment_path(work_comment.work.id, work_comment.id), method: :delete, remote:true, data: {"turbolinks" => false}, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+  </div>
+</div>

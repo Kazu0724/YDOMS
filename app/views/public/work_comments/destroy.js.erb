@@ -1,0 +1,2 @@
+$('#comment_list').html("<%= j(render "public/work_comments/work_comment", work_comment: @work_comment) %>");
+$('#work_comment_count').html("<%= @work.work_comments.count %>")

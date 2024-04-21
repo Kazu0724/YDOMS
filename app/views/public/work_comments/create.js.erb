@@ -1,0 +1,29 @@
+<%# app/views/work_comments/_form.html.erb %>
+<div id="comment_form">
+  <%= render 'public/work_comments/work_comment', work: @work, work_comment: @work_comment %>
+</div>
+
+<div id="work_comment_count">
+  コメント数: <%= @work.work_comments.count %>
+</div>
+
+<%# app/assets/javascripts/comments.js %>
+$(document).ready(function() {
+  $('#submit_comment').click(function() {
+    // コメントのフォームをAjaxで送信する処理
+    $.ajax({
+      url: '/comments', // 送信先のURL
+      method: 'POST', // HTTPメソッド
+      data: $('#comment_form').serialize(), // フォームデータのシリアライズ
+      success: function(response) {
+        // 成功時の処理
+        $('#comment_form').html(response.form);
+        $('#work_comment_count').html('コメント数: ' + response.comment_count);
+        $('#specific_textarea').val(''); // 特定のテキストエリアのみリセット
+      },
+      error: function(error) {
+        console.error('コメントの送信に失敗しました。', error);
+      }
+    });
+  });
+});
