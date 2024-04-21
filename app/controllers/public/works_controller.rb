@@ -16,10 +16,8 @@ class Public::WorksController < ApplicationController
     @work = Work.find(params[:id])
     if @work.status == true
       @work.update_attribute(:status, false)
-      # redirect_to request.referer
     else
       @work.update_attribute(:status, true)
-      # redirect_to request.referer
     end
   end
 end

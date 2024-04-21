@@ -1,5 +1,5 @@
 <!--配送状況-->
-<div id ="work_status">
+<div id ="work_status_<%= work.id %>">
   <% if  work.status %>
     <%= link_to admin_works_status_path(work.id), method: :patch, remote: true, data: {"turbolinks" => false}, style: "text-decoration: none;" do %>
       <strong style="color: red;" >配送未達</strong>
