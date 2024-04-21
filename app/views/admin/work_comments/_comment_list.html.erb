@@ -1,0 +1,13 @@
+<div id ="comment_list">
+  <% work.work_comments.each do |work_comment| %>
+    <table>
+      <tr>
+        <td><%= work_comment.employee.employee_name %></td>
+        <td><%= work_comment.body %></td>
+        <td>
+          <%= link_to "削除", admin_work_work_comment_path(work_comment.work.id, work_comment.id), method: :delete, remote:true, data: {"turbolinks" => false}, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
