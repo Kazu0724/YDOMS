@@ -68,22 +68,9 @@
 
 <!--コメント機能-->
   <div class="row">
-
     <div class="col-10 offset-2">
-      <p>コメント件数:<%= @work.work_comments.count %></p>
-        <div class="comment_list">
-          <% @work.work_comments.each do |work_comment| %>
-            <table>
-              <tr>
-                <td><%= work_comment.employee.employee_name %></td>
-                <td><%= work_comment.body %></td>
-                <td>
-                  <%= link_to "削除", admin_work_work_comment_path(work_comment.work.id, work_comment.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
-                </td>
-              </tr>
-            </table>
-          <% end %>
-        </div>
+      <p>コメント件数:<span id = "comment_count"><%= @work.work_comments.count %></span></p>
+        <%= render 'admin/work_comments/comment_list', work: @work, work_comment: @work_comment %>
     </div>
 
   </div>

@@ -1,12 +1,12 @@
 <!--配送状況-->
-<div class="work_status">
+<div id ="work_status_<%= work.id %>">
   <% if  work.status %>
-    <%= link_to admin_works_status_path(work.id), method: :patch, style: "text-decoration: none;" do %>
+    <%= link_to admin_works_status_path(work.id), method: :patch, remote: true, data: {"turbolinks" => false}, style: "text-decoration: none;" do %>
       <strong style="color: red;" >配送未達</strong>
     <% end %>
 
   <% else %>
-    <%= link_to admin_works_status_path(work.id), method: :patch, style: "text-decoration: none;" do %>
+    <%= link_to admin_works_status_path(work.id), method: :patch, remote: true, data: {"turbolinks" => false}, style: "text-decoration: none;" do %>
       <strong style="color: green;" >配送完了</strong>
     <% end %>
   <% end %>
