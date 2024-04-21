@@ -1,0 +1,6 @@
+<div id="comment_form">
+  <%= form_with model: [work, WorkComment.new], local: false do |f| %>
+    <%= f.text_area :body, size: "100", placeholder: "コメントをここに" %></br>
+    <%= f.submit "追加" %>
+  <% end %>
+</div>
