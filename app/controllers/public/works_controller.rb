@@ -3,11 +3,9 @@ class Public::WorksController < ApplicationController
     @works = Work.all.order(:date)
     @employees = Employee.all
     @work_list = {}
-    @genres = Genre.all
   end
 
   def show
-    @genres = Genre.all
     @work = Work.find(params[:id])
     @work_comment = WorkComment.new
   end
