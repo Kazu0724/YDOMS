@@ -1,5 +1,6 @@
 class Public::EmployeesController < ApplicationController
   before_action :ensure_guest_employee, only: [:edit]
+  before_action :authenticate_employee!
 
   def index
     @employees = Employee.all.order(:employee_number)

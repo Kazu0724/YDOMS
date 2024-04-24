@@ -1,4 +1,6 @@
 class Public::WorksController < ApplicationController
+  before_action :authenticate_employee!
+
   def index
     @works = Work.all.order(:date)
     @employees = Employee.all

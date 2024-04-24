@@ -1,4 +1,5 @@
 class Public::GenresController < ApplicationController
+  before_action :authenticate_employee!
 
   def index
     # @genres = Genre.all

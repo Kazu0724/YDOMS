@@ -1,4 +1,5 @@
 class Admin::AddressesController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @addresses = Address.all.order(:genre_id)
