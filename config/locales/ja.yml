@@ -40,8 +40,8 @@
           genre:
             attributes:
               name:
-                taken: "この名前は既に使われています"  # エラーメッセージ
-                # blank: "ジャンル名が入力されていません"
+                blank: "が入力されていません"
+                taken: "とこのカラーの組み合わせは既に使われています"  # エラーメッセージ
             taken: "このジャンルは既に存在しています"  # モデル全体に共通するエラーメッセージ
 
           address:
@@ -59,10 +59,13 @@
             attributes:
               name: "お名前"
 
+      models:
+        genre: "ジャンル"
 
+      attributes:
+        genre:
+          name: "ジャンル名"
 
         messages:
           not_saved: "エラーが発生したため、保存されませんでした。"
-          # taken: "既に使われています"  # グローバルなエラーメッセージ
-          # blank: "が入力されていません"
 
