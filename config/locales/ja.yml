@@ -36,7 +36,8 @@
           item:
             attributes:
               name:
-                blank: "商品名が入力されていません"
+                blank: "が入力されていません"
+                taken: "が既に使われています。"
 
           genre:
             attributes:
@@ -61,17 +62,24 @@
               name: "お名前"
 
       models:
-        genre: "ジャンル"
         work: "仕事"
+        item: "商品"
+        genre: "ジャンル"
+
 
       attributes:
-        genre:
-          name: "ジャンル名"
-
         work:
           date: "日付"
           start_time: "開始時間"
           end_time: "終了時間"
+
+        item:
+          name: "商品名"
+
+        genre:
+          name: "ジャンル名"
+
+
 
         messages:
           not_saved: "エラーが発生したため、保存されませんでした。"
