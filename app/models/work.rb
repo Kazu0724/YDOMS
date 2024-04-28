@@ -11,7 +11,7 @@ class Work < ApplicationRecord
   validates :employee_id, presence: true
 
   validates :date, presence: true
-  validates :start_time, presence: true
+  validates :start_time, presence: true, uniqueness: {scope: [:date, :employee_id]}
   validates :end_time, presence: true
   validates :amount, presence: true
 

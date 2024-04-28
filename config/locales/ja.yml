@@ -26,11 +26,12 @@
           work:
             attributes:
               date:
-                blank: "日付が入力されていません"
+                blank: "が入力されていません"
               start_time:
-                blank: "開始時間が入力されていません"
+                blank: "が入力されていません"
+                taken: "がすでに登録されている仕事の開始時刻と重複しています"
               end_time:
-                blank: "終了時間が入力されていません"
+                blank: "が入力されていません"
 
           item:
             attributes:
@@ -61,10 +62,16 @@
 
       models:
         genre: "ジャンル"
+        work: "仕事"
 
       attributes:
         genre:
           name: "ジャンル名"
+
+        work:
+          date: "日付"
+          start_time: "開始時間"
+          end_time: "終了時間"
 
         messages:
           not_saved: "エラーが発生したため、保存されませんでした。"
