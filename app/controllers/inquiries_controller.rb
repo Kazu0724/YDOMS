@@ -11,8 +11,6 @@ class InquiriesController < ApplicationController
       InquiryMailer.send_mail(@inquiry).deliver_now
       redirect_to inquiries_done_path
     else
-      flash[:alert] = @inquiry.errors.full_messages.join(",")
-      @inquiry = Inquiry.new
       render :new
     end
   end

@@ -2,9 +2,8 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
 
-    <div class="mb-2">
-      <%= flash[:alert] %>
-    </div>
+      <!--エラーメッセージ-->
+      <%= render 'layouts/errors', obj: @inquiry %>
 
       <%= form_with model: @inquiry do |f| %>
         <div class="form-group">
