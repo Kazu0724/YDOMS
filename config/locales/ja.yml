@@ -17,6 +17,9 @@
       formats:
         default: "%H:%M"
 
+
+
+
     error:
       format: "%{count}"
 
@@ -43,8 +46,7 @@
             attributes:
               name:
                 blank: "が入力されていません"
-                taken: "とこのカラーの組み合わせは既に登録されています"  # エラーメッセージ
-            taken: "このジャンルは既に存在しています"  # モデル全体に共通するエラーメッセージ
+                taken: "とこのカラーの組み合わせは既に登録されています"
 
           address:
             attributes:
