@@ -43,19 +43,20 @@
             attributes:
               name:
                 blank: "が入力されていません"
-                taken: "とこのカラーの組み合わせは既に使われています"  # エラーメッセージ
+                taken: "とこのカラーの組み合わせは既に登録されています"  # エラーメッセージ
             taken: "このジャンルは既に存在しています"  # モデル全体に共通するエラーメッセージ
 
           address:
             attributes:
               name:
-                blank: "店舗名が入力されていません"
+                blank: "が入力されていません"
+                taken: "とこのジャンルの組み合わせは既に登録されています"
               phone_number:
-                blank: "電話番号が入力されていません"
+                blank: "が入力されていません"
               postal_code:
-                blank: "郵便番号が入力されていません"
+                blank: "が入力されていません"
               address:
-                blank: "住所が入力されていません"
+                blank: "が入力されていません"
 
           inquiries:
             attributes:
@@ -65,6 +66,7 @@
         work: "仕事"
         item: "商品"
         genre: "ジャンル"
+        address: "配送先"
 
 
       attributes:
@@ -78,6 +80,12 @@
 
         genre:
           name: "ジャンル名"
+
+        address:
+          name: "店舗名"
+          phone_number: "電話番号"
+          postal_code: "郵便番号"
+          address: "住所"
 
 
 
