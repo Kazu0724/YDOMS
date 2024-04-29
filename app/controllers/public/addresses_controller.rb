@@ -1,12 +1,12 @@
 class Public::AddressesController < ApplicationController
+  before_action :authenticate_employee!
+
   def index
     @addresses = Address.all.order(:genre_id)
-    @genres = Genre.all
   end
 
   def show
     @address = Address.find(params[:id])
-    @genres = Genre.all
   end
 
 end

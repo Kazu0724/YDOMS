@@ -13,6 +13,7 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th>お問い合わせ日</th>
                 <th>件名</th>
                 <th>名前</th>
                 <th>評価点数</th>
@@ -21,6 +22,7 @@
             <tbody>
               <% @inquiries.each do |inquiry| %>
                 <tr>
+                  <td><%= l inquiry.created_at, format: :time %></td>
                   <td>
                     <%= link_to admin_inquiry_path(inquiry.id) do %>
                       <%= inquiry.subject %>

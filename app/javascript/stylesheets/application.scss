@@ -45,3 +45,12 @@
 .genre_search td:hover {
   transform: translateX(5px);
 }
+
+.table_comment {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+.table_comment td {
+  padding: 5px;
+}

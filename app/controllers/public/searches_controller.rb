@@ -1,6 +1,7 @@
 class Public::SearchesController < ApplicationController
+  before_action :authenticate_employee!
+
   def search
-    @genres = Genre.all
     @model = params[:model]
     @content = params[:content]
     if @model == 'work'

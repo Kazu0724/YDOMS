@@ -1,19 +1,17 @@
 class Public::EmployeesController < ApplicationController
   before_action :ensure_guest_employee, only: [:edit]
+  before_action :authenticate_employee!
 
   def index
     @employees = Employee.all.order(:employee_number)
-    @genres = Genre.all
   end
 
   def show
     @employee = Employee.find(params[:id])
-    @genres = Genre.all
   end
 
   def edit
     @employee = Employee.find(params[:id])
-    @genres = Genre.all
   end
 
   def update
@@ -21,7 +19,6 @@ class Public::EmployeesController < ApplicationController
     if @employee.update(employee_params)
       redirect_to employee_path
     else
-      @genres = Genre.all
       @employee = Employee.find(params[:id])
       render :edit
     end

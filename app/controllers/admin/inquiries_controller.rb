@@ -1,13 +1,12 @@
 class Admin::InquiriesController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
-    @inquiries = Inquiry.all
-    @genres = Genre.all
+    @inquiries = Inquiry.all.sort.reverse
   end
 
   def show
     @inquiry = Inquiry.find(params[:id])
-    @genres = Genre.all
   end
 
   def destroy

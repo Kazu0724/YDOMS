@@ -1,8 +1,9 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @items = Item.all
     @item = Item.new
-    @genres = Genre.all
   end
 
   def create
@@ -10,7 +11,6 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_items_path
     else
-      @genres = Genre.all
       @items = Item.all
       render :index
     end
@@ -18,7 +18,6 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @genres = Genre.all
   end
 
   def update
@@ -26,7 +25,6 @@ class Admin::ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to admin_items_path
     else
-      @genres = Genre.all
       @items = Item.all
       render :edit
     end

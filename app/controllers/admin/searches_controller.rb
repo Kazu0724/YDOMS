@@ -1,6 +1,7 @@
 class Admin::SearchesController < ApplicationController
+  before_action :authenticate_admin!
+
   def search
-    @genres = Genre.all
     @model = params[:model]
     @content = params[:content]
     if @model == 'work'

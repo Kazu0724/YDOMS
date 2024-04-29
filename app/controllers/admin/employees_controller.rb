@@ -1,17 +1,16 @@
 class Admin::EmployeesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @employees = Employee.all.order(:employee_number)
-    @genres = Genre.all
   end
 
   def show
     @employee = Employee.find(params[:id])
-    @genres = Genre.all
   end
 
   def edit
     @employee = Employee.find(params[:id])
-    @genres = Genre.all
   end
 
   def update
@@ -19,7 +18,6 @@ class Admin::EmployeesController < ApplicationController
     if @employee.update(employee_params)
       redirect_to admin_employee_path
     else
-      @genres = Genre.all
       @employee = Employee.find(params[:id])
       render :edit
     end
