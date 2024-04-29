@@ -11,7 +11,7 @@ class Employee < ApplicationRecord
    validates :first_name,presence: true
    validates :last_name_kana, presence: true
    validates :first_name_kana, presence: true
-   validates :employee_number, presence: true
+   validates :employee_number, presence: true, uniqueness: true
    validates :phone_number,presence: true
    validates :car_number, presence: true
 

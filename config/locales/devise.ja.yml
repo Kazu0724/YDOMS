@@ -9,7 +9,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -31,6 +31,7 @@ ja:
         first_name_kana: 名前フリガナ（名）
         employee_number: 社員番号
         phone_number: 電話番号
+
       admin:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -39,7 +40,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email:  メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -60,6 +61,49 @@ ja:
         last_name_kana: 名前フリガナ（姓）
         first_name_kana: 名前フリガナ（名）
         employee_number: 社員番号
+
+    errors:
+      models:
+        employee:
+          attributes:
+            email:
+              blank: "が入力されていません"
+              taken: "が既に使用されています"
+            password:
+              blank: "が入力されていません"
+            last_name:
+              blank: "が入力されていません"
+            first_name:
+              blank: "が入力されていません"
+            last_name_kana:
+              blank: "が入力されていません"
+            first_name_kana:
+              blank: "が入力されていません"
+            employee_number:
+              blank: "が入力されていません"
+              taken: "が既に使用されています"
+            phone_number:
+              blank: "が入力されていません"
+
+        admin:
+          attributes:
+            email:
+              blank: "が入力されていません"
+              taken: "が既に使用されています"
+            password:
+              blank: "が入力されていません"
+            last_name:
+              blank: "が入力されていません"
+            first_name:
+              blank: "が入力されていません"
+            last_name_kana:
+              blank: "が入力されていません"
+            first_name_kana:
+              blank: "が入力されていません"
+            employee_number:
+              blank: "が入力されていません"
+              taken: "が既に使用されています"
+
     models:
       admin: 管理者
       employee: 社員
