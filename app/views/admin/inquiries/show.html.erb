@@ -12,6 +12,10 @@
         <div class="inquiry_index">
           <table class="table table-borderless">
             <tr>
+              <td>お問い合わせ日</td>
+              <td><%= l @inquiry.created_at, format: :time %></td>
+            </tr>
+            <tr>
               <td>名前</td>
               <td><%= @inquiry.name %></td>
             </tr>

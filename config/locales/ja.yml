@@ -16,6 +16,7 @@
     time:
       formats:
         default: "%H:%M"
+        time: "%Y/%m/%d %H:%M:%S"
 
 
 
