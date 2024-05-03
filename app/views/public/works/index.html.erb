@@ -113,11 +113,7 @@
                               <%= work.address.name %></br>
                             <% end %>
 
-                            <% if work.employee.id == current_employee.id %>
-                              <%= render 'admin/works/work_status', work: work %>
-                            <% else %>
-                              <%= render 'public/works/work_status', work: work %>
-                            <% end %>
+                            <%= render 'public/works/work_status', work: work %>
                           </span>
                           コメント<%= work.work_comments.count %>
                           <%

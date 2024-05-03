@@ -1,8 +1,25 @@
 <!--配送状況-->
-<div class="not_employee_work_status">
-  <% if work.status == true %>
-    <strong style="color: red;" >配送未達</strong>
-  <% else %>
-    <strong style="color: green;" >配送完了</strong>
-  <% end %>
-</div>
+<% if work.employee.id == current_employee.id %>
+  <div id ="work_status_<%= work.id %>">
+    <% if  work.status %>
+      <%= link_to works_status_path(work.id), method: :patch, remote: true, data: {"turbolinks" => false}, style: "text-decoration: none;" do %>
+        <strong style="color: red;" >配送未達</strong>
+      <% end %>
+
+    <% else %>
+      <%= link_to works_status_path(work.id), method: :patch, remote: true, data: {"turbolinks" => false}, style: "text-decoration: none;" do %>
+        <strong style="color: green;" >配送完了</strong>
+      <% end %>
+    <% end %>
+  </div>
+
+<% else %>
+  <div class="not_employee_work_status">
+    <% if work.status == true %>
+      <strong style="color: red;" >配送未達</strong>
+    <% else %>
+      <strong style="color: green;" >配送完了</strong>
+    <% end %>
+  </div>
+
+<% end %>
